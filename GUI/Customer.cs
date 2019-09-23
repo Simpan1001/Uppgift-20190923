@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Main
+namespace GUI
 {
     class Customer
     {
-        public string first
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string wholeName { get; set; }
     }
 }
