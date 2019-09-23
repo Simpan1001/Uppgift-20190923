@@ -17,23 +17,22 @@ namespace GUI
         public Form1()
         {
             InitializeComponent();
-            button1.Text = "Add Customer";
-            button2.Text = "Show Customers";
-            button3.Text = "Search name";
-
+            
+            //Pre-Generated objects in the list
             namnLista.Add(new Customer() { firstName = "Thor", lastName = "Odinsson", email = "thor.odinsson@vallhalla.com", phoneNumber = "237-740 50 23", favorite = true });
             namnLista.Add(new Customer() { firstName = "Bruce", lastName = "Banner", email = "bruce.banner@smash.com", phoneNumber = "123-456 78 90", favorite = true });
-            namnLista.Add(new Customer() { firstName = "Spongebob", lastName = "Squarepants", email = "spongebob.squarepants@spongemail.wc", phoneNumber = "", favorite = false });
+            namnLista.Add(new Customer() { firstName = "Spongebob", lastName = "Squarepants", email = "spongebob.squarepants@spongemail.wc", phoneNumber = "345-038 82 24", favorite = false });
 
+            //Puts together all First and last names into a whole name
             foreach (Customer e in namnLista)
             {
                 e.wholeName = (e.firstName + " " + e.lastName);
             }
         }
 
+        //This method adds names to the list \/
         private void Button1_Click(object sender, EventArgs e)
         {
-            //Addera texten i textrutorna till listan
             if (textBox1.Text != "" && textBox2.Text != "")
             {
                 Customer c = new Customer() { firstName = textBox1.Text, lastName = textBox2.Text };
@@ -44,6 +43,9 @@ namespace GUI
             }
         }
 
+        //This method adds names to the list /\
+
+        //This method displays all the names in the list onto the listBox \/
         private void Button2_Click(object sender, EventArgs e)
         {
             //Skriver ut alla kunder i listan
@@ -54,7 +56,9 @@ namespace GUI
                 listBox1.Items.Add(a.wholeName);
             }
         }
+        //This method displays all the names in the list onto the listBox /\
 
+        //This method compares the inputed name to all the names in the list. If its a match, then print the info about the name \/
         private void Button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -73,9 +77,10 @@ namespace GUI
             }
             if (i == 0)
             {
-                listBox1.Items.Add("That name does not exist in the current context, lol XD");
+                listBox1.Items.Add("That name does not exist in the list.");
+                listBox1.Items.Add("Try another name.");
             }
         }
-
+        //This method compares the inputed name to all the names in the list. If its a match, then print the info about the name /\
     }
 }
